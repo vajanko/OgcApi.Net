@@ -63,6 +63,9 @@ public class ConformanceController : ControllerBase
             conformsTo.Add(new Uri("http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html"));
             conformsTo.Add(new Uri("http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson"));
             conformsTo.Add(new Uri("http://www.opengis.net/spec/ogcapi-features-2/1.0/conf/crs"));
+
+            conformsTo.Add(new Uri("http://www.opengis.net/spec/ogcapi-features-3/1.0/conf/queryables"));
+            conformsTo.Add(new Uri("http://www.opengis.net/spec/ogcapi-features-3/1.0/conf/queryables-query-parameters"));
         }
 
         if (_apiOptions != null && _apiOptions.Collections.Items.Any(item => item.Tiles != null))
