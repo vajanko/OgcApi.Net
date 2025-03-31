@@ -37,22 +37,8 @@ namespace OgcApi.Net.Controllers
 
         private Queryables GetCollectionQueryables(Uri uri, CollectionOptions collectionOptions)
         {
-            // TODO: missing properties
-
-            // collectionOptions.Features.Storage.Properties
-            //Dictionary<string, FeatureProperty> properties = collectionOptions.Features.Storage.Properties
-            //    .ToDictionary(p => p.Title, p => p);
-            Dictionary<string, FeatureProperty> properties = new Dictionary<string, FeatureProperty>();
-            foreach (string prop in collectionOptions.Features.Storage.Properties)
-            {
-                properties.Add(prop, new FeatureProperty()
-                {
-                    Type = "string",
-                    Title = prop,
-                    Description = $"This is property {prop}",
-                    Format = null,
-                });
-            }
+            Dictionary<string, QueryableProperty> properties = collectionOptions.Features.Queryables.Properties
+                .ToDictionary(p => p.Title, p => p);
 
             var queryables = new Queryables
             {

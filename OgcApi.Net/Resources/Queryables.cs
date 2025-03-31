@@ -19,5 +19,5 @@ public class Queryables
 
     public string Title { get; set; }
 
-    public Dictionary<string, FeatureProperty> Properties { get; set; }
+    public Dictionary<string, QueryableProperty> Properties { get; set; }
 }

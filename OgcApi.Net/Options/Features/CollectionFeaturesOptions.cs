@@ -14,4 +14,6 @@ public class CollectionFeaturesOptions
     public string StorageCrsCoordinateEpoch { get; set; }
 
     public IFeaturesSourceOptions Storage { get; set; }
+
+    public QueryablesOptions Queryables { get; set; }
 }
