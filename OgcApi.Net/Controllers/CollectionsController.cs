@@ -25,7 +25,7 @@ namespace OgcApi.Net.Controllers;
 [ApiController]
 [Route("api/ogc/collections")]
 [ApiExplorerSettings(GroupName = "ogc")]
-public class CollectionsController : ControllerBase
+public partial class CollectionsController : ControllerBase
 {
     private readonly OgcApiOptions _apiOptions;
 
@@ -132,6 +132,8 @@ public class CollectionsController : ControllerBase
         List<Link> links;
         if (_apiOptions.Collections.Links == null || _apiOptions.Collections.Links.Count == 0)
         {
+            var baseUri = Utils.GetBaseUrl(Request);
+
             links =
             [
                 new Link
@@ -146,6 +148,13 @@ public class CollectionsController : ControllerBase
                     Href = _apiOptions.LandingPage.ApiDescriptionPage,
                     Rel = "alternate",
                     Type = "text/html"
+                },
+                new Link 
+                {
+                    Href = new Uri(baseUri, $"collections/{collectionOptions.Id}/queryables"),
+                    Rel = "http://www.opengis.net/def/rel/ogc/1.0/queryables",
+                    Type = "application/schema+json",
+                    Title = $"Queryables for {collectionOptions.Title} collection"
                 }
             ];
         }
