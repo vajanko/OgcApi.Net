@@ -64,12 +64,12 @@ public class SpatialSqliteConnection : SqliteConnection
         // verify SpatiaLite is loaded by calling a SpatiaLite function
         using (var command = CreateCommand())
         {
-            command.CommandText = "SELECT spatialite_version();";
-            var spatialiteVersion = command.ExecuteScalar()?.ToString();
-
             // initialize SpatiaLite metadata (if not already initialized, i.e. call only once per database)
             // this creates the core SpatiaLite system tables.
-            command.CommandText = "SELECT InitSpatialMetaData();";
+            command.CommandText = """
+                SELECT InitSpatialMetaData()
+                WHERE NOT EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'spatial_ref_sys');
+            """;
             command.ExecuteNonQuery();
         }
     }
