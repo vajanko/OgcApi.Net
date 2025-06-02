@@ -48,6 +48,11 @@ public class SpatialSqliteConnection : SqliteConnection
         var _ = initialize.Value;
     }
 
+    private const string SPATIL_INIT_CMD = """
+                SELECT InitSpatialMetaData()
+                WHERE NOT EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'spatial_ref_sys');
+            """;
+
     private void InitializeSpatialDatabase()
     {
         // enable extension loading - a crucial step for security reasons in SQLite.
@@ -61,16 +66,21 @@ public class SpatialSqliteConnection : SqliteConnection
         // Ensure the module is in a discoverable location (e.g., same directory as your app).
         LoadExtension(SpatiaLiteModulePath);
 
-        // verify SpatiaLite is loaded by calling a SpatiaLite function
-        using (var command = CreateCommand())
+        try
         {
-            // initialize SpatiaLite metadata (if not already initialized, i.e. call only once per database)
-            // this creates the core SpatiaLite system tables.
-            command.CommandText = """
-                SELECT InitSpatialMetaData()
-                WHERE NOT EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'spatial_ref_sys');
-            """;
-            command.ExecuteNonQuery();
+
+            // verify SpatiaLite is loaded by calling a SpatiaLite function
+            using (var command = CreateCommand())
+            {
+                // initialize SpatiaLite metadata (if not already initialized, i.e. call only once per database)
+                // this creates the core SpatiaLite system tables.
+                command.CommandText = SPATIL_INIT_CMD;
+                command.ExecuteNonQuery();
+            }
+        }
+        catch (Exception ex)
+        {
+
         }
     }
     private async Task InitializeSpatialDatabaseAsync(CancellationToken token)
@@ -92,7 +102,7 @@ public class SpatialSqliteConnection : SqliteConnection
 
             // initialize SpatiaLite metadata (if not already initialized, i.e. call only once per database)
             // this creates the core SpatiaLite system tables.
-            command.CommandText = "SELECT InitSpatialMetaData();";
+            command.CommandText = SPATIL_INIT_CMD;
             await command.ExecuteScalarAsync(token);
         }
     }
