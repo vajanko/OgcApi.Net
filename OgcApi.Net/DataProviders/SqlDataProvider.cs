@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 namespace OgcApi.Net.DataProviders;
 
 public abstract class SqlDataProvider(ILogger logger, IOptionsMonitor<OgcApiOptions> options)
-    : IFeaturesProvider, ITilesProvider
+    : IFeaturesProvider, ITilesProvider, IPropertyMetadataProvider
 {
     public const int FeaturesMinimumLimit = 1;
 
@@ -592,6 +592,64 @@ public abstract class SqlDataProvider(ILogger logger, IOptionsMonitor<OgcApiOpti
                 MaxTileRow = (1 << i) - 1
             });
         }
+        return result;
+    }
+
+    public Dictionary<string, string> GetPropertyMetadata(string collectionId)
+    {
+        var collectionOptions = (CollectionOptions)CollectionsOptions.GetSourceById(collectionId);
+        if (collectionOptions == null)
+        {
+            Logger.LogTrace(
+                "The source collection with ID = {collectionId} was not found in the provided options", collectionId);
+            return null;
+        }
+        var sourceOptions = (SqlFeaturesSourceOptions)collectionOptions.Features?.Storage;
+        if (sourceOptions == null)
+        {
+            Logger.LogTrace(
+                "The source collection with ID = {collectionId} was found, yet it contains no storage options", collectionId);
+            return null;
+        }
+
+        using var connection = GetDbConnection(sourceOptions.ConnectionString);
+        connection.Open();
+
+        using var command = connection.CreateCommand();
+        command.CommandText = """
+            SELECT 
+                COLUMN_NAME,
+                DATA_TYPE
+            FROM 
+                INFORMATION_SCHEMA.COLUMNS
+            WHERE 
+                TABLE_NAME = @Table
+                AND TABLE_SCHEMA = @Schema;
+            """;
+
+        var tableParameter = command.CreateParameter();
+        tableParameter.ParameterName = "Table";
+        tableParameter.Value = sourceOptions.Table;
+
+        var schemaParameter = command.CreateParameter();
+        schemaParameter.ParameterName = "Schema";
+        schemaParameter.Value = sourceOptions.Schema;
+
+        command.Parameters.Add(tableParameter);
+        command.Parameters.Add(schemaParameter);
+
+        using var reader = command.ExecuteReader();
+
+        var result = new Dictionary<string, string>();
+
+        while (reader.Read())
+        {
+            var name = reader.GetString(0);
+            var type = reader.GetString(1);
+
+            result.Add(name, DbTypeMapper.MapDbTypeToSimpleType(type));
+        }
+
         return result;
     }
 }

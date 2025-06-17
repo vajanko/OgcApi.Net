@@ -44,6 +44,26 @@
             "AllowUpdate": true,
             "AllowDelete": true
           }
+        },
+        "SchemaOptions": {
+          "Properties": {
+            "Name": {
+              "Title": "Name",
+              "Type":  "string"
+            },
+            "Number": {
+              "Title": "Number"
+            },
+            "Geom": {
+              "Title": "geometry"
+            },
+            "Id": {
+              "Title": "id"
+            },
+            "Date": {
+              "Title": "Date"
+            }
+          }
         }
       },
       {
