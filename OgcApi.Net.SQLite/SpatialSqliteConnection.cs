@@ -1,7 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using System;
-using System.IO;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,24 +27,6 @@ public class SpatialSqliteConnection : SqliteConnection
         await InitializeSpatialDatabaseAsync(cancellationToken);
     }
 
-    private static Lazy<object> initialize = new(__SetupPathVariable, isThreadSafe: true);
-
-    private static object __SetupPathVariable()
-    {
-        string dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-        string path = Path.Combine(dir, "runtimes",
-            Environment.Is64BitProcess ? "win-x64" : "win-x86", "native");
-
-        Environment.SetEnvironmentVariable("PATH", path + ";" + Environment.GetEnvironmentVariable("PATH"));
-
-        return null;
-    }
-    private static void InitSpatiaLite()
-    {
-        var _ = initialize.Value;
-    }
-
     private const string SPATIL_INIT_CMD = """
                 SELECT InitSpatialMetaData()
                 WHERE NOT EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'spatial_ref_sys');
@@ -58,29 +37,19 @@ public class SpatialSqliteConnection : SqliteConnection
         // enable extension loading - a crucial step for security reasons in SQLite.
         EnableExtensions(true);
 
-        InitSpatiaLite();
-
         // Load the SpatiaLite extension
         // The filename should be just the name of the module (e.g., "mod_spatialite").
         // SQLite will automatically add the correct platform-specific extension (.dll, .so, .dylib).
         // Ensure the module is in a discoverable location (e.g., same directory as your app).
         LoadExtension(SpatiaLiteModulePath);
 
-        try
+        // verify SpatiaLite is loaded by calling a SpatiaLite function
+        using (var command = CreateCommand())
         {
-
-            // verify SpatiaLite is loaded by calling a SpatiaLite function
-            using (var command = CreateCommand())
-            {
-                // initialize SpatiaLite metadata (if not already initialized, i.e. call only once per database)
-                // this creates the core SpatiaLite system tables.
-                command.CommandText = SPATIL_INIT_CMD;
-                command.ExecuteNonQuery();
-            }
-        }
-        catch (Exception ex)
-        {
-
+            // initialize SpatiaLite metadata (if not already initialized, i.e. call only once per database)
+            // this creates the core SpatiaLite system tables.
+            command.CommandText = SPATIL_INIT_CMD;
+            command.ExecuteNonQuery();
         }
     }
     private async Task InitializeSpatialDatabaseAsync(CancellationToken token)
