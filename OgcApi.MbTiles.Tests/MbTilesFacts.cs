@@ -56,28 +56,28 @@ public class MbTilesFacts
     }
 
     [Fact]
-    public async void GetTile()
+    public async Task GetTile()
     {
         var tile = await TestProviders.GetDefaultProvider().GetTileAsync("data", 8, 82, 162);
         Assert.NotNull(tile);
     }
 
     [Fact]
-    public async void GetTileWithDate()
+    public async Task GetTileWithDate()
     {
         var tile = await TestProviders.GetDefaultProvider().GetTileAsync("data", 8, 82, 162, "2018-02-19T19:00:01Z");
         Assert.NotNull(tile);
     }
 
     [Fact]
-    public async void GetTileWithIncorrectDate()
+    public async Task GetTileWithIncorrectDate()
     {
         var tile = await TestProviders.GetDefaultProvider().GetTileAsync("data", 8, 82, 162, "2017-02-12T23:00:01Z");
         Assert.Null(tile);
     }
 
     [Fact]
-    public async void GetTileDirect()
+    public async Task GetTileDirect()
     {
         var tile = await MbTilesProvider.GetTileDirectAsync(Path.Combine("Data", "data.mbtiles"), 8, 82, 162);
         Assert.NotNull(tile);
@@ -332,5 +332,21 @@ public class MbTilesFacts
 
         foreach (var layer in tile.Layers)
             Assert.Equal(featuresCount[layer.Name], layer.Features.Count);
+    }
+
+    [Fact]
+    public void GetPropertyMetadata()
+    {
+        var expected = new Dictionary<string, string>
+        {
+            { "fid", "number" },
+            { "geometry", "polygon" },
+            { "name", "string" },
+            { "value", "number" }
+        };
+
+        var actual = TestProviders.GetDefaultProvider().GetPropertyMetadata("data");
+
+        Assert.Equal(expected, actual);
     }
 }
