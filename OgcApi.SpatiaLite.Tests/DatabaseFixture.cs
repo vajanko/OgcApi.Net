@@ -1,21 +1,21 @@
-﻿using OgcApi.SQLite.Tests.Utils;
+﻿using OgcApi.SpatiaLite.Tests.Utils;
 using System.IO;
 using System.Runtime.InteropServices;
 using System;
 using System.Linq;
 
-namespace OgcApi.SQLite.Tests;
+namespace OgcApi.SpatiaLite.Tests;
 
 public class DatabaseFixture
 {
     public DatabaseFixture()
     {
-        InitSQLite();
+        InitSpatiaLite();
 
         DatabaseUtils.RecreateDatabase();
     }
 
-    private void InitSQLite()
+    private void InitSpatiaLite()
     {
         string baseDir = AppContext.BaseDirectory;
 

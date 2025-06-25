@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.Sqlite;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NetTopologySuite.Geometries;
 using NetTopologySuite.IO;
@@ -8,16 +7,16 @@ using OgcApi.Net.Options;
 using OgcApi.Net.Options.Features;
 using System.Data.Common;
 
-namespace OgcApi.Net.SQLite;
+namespace OgcApi.Net.SpatiaLite;
 
-[OgcFeaturesProvider("SQLite", typeof(SqlFeaturesSourceOptions))]
-[OgcTilesProvider("SQLite", null)]
-public class SQLiteProvider(ILogger<SQLiteProvider> logger, IOptionsMonitor<OgcApiOptions> options)
+[OgcFeaturesProvider("SpatiaLite", typeof(SqlFeaturesSourceOptions))]
+[OgcTilesProvider("SpatiaLite", null)]
+public class SpatiaLiteProvider(ILogger<SpatiaLiteProvider> logger, IOptionsMonitor<OgcApiOptions> options)
     : SqlDataProvider(logger, options)
 {
     protected override DbConnection GetDbConnection(string connectionString)
     {
-        return new SpatialSqliteConnection(connectionString);
+        return new SpatiaLiteConnection(connectionString);
     }
 
     protected override IFeaturesSqlQueryBuilder GetFeaturesSqlQueryBuilder(SqlFeaturesSourceOptions collectionOptions)

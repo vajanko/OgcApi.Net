@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OgcApi.SQLite.Tests.Utils;
+using OgcApi.SpatiaLite.Tests.Utils;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Moq;
-using OgcApi.Net.SQLite;
+using OgcApi.Net.SpatiaLite;
 
-namespace OgcApi.SQLite.Tests;
+namespace OgcApi.SpatiaLite.Tests;
 
 public static class TestProviders
 {
@@ -250,19 +250,19 @@ public static class TestProviders
     }
 
 
-    public static SQLiteProvider GetDefaultProvider()
+    public static SpatiaLiteProvider GetDefaultProvider()
     {
-        return new SQLiteProvider(new NullLogger<SQLiteProvider>(),
+        return new SpatiaLiteProvider(new NullLogger<SpatiaLiteProvider>(),
             Mock.Of<IOptionsMonitor<OgcApiOptions>>(monitor => monitor.CurrentValue == GetDefaultOptions()));
     }
-    public static SQLiteProvider GetProviderWithErrors()
+    public static SpatiaLiteProvider GetProviderWithErrors()
     {
-        return new SQLiteProvider(new NullLogger<SQLiteProvider>(),
+        return new SpatiaLiteProvider(new NullLogger<SpatiaLiteProvider>(),
             Mock.Of<IOptionsMonitor<OgcApiOptions>>(monitor => monitor.CurrentValue == GetOptionsWithUnknownTable()));
     }
-    public static SQLiteProvider GetProviderWithApiKey()
+    public static SpatiaLiteProvider GetProviderWithApiKey()
     {
-        return new SQLiteProvider(new NullLogger<SQLiteProvider>(),
+        return new SpatiaLiteProvider(new NullLogger<SpatiaLiteProvider>(),
             Mock.Of<IOptionsMonitor<OgcApiOptions>>(monitor => monitor.CurrentValue == GetOptionsWithApiKey()));
     }
 }

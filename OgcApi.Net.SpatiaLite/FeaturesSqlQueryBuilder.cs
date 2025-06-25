@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace OgcApi.Net.SQLite;
+namespace OgcApi.Net.SpatiaLite;
 
 public class FeaturesSqlQueryBuilder(SqlFeaturesSourceOptions collectionOptions) : IFeaturesSqlQueryBuilder
 {

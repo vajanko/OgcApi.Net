@@ -2,17 +2,17 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OgcApi.Net.SQLite;
+namespace OgcApi.Net.SpatiaLite;
 
-public class SpatialSqliteConnection : SqliteConnection
+public class SpatiaLiteConnection : SqliteConnection
 {
     // Path to your SpatiaLite module (e.g., mod_spatialite.dll)
     // Make sure this DLL and its dependencies (GEOS, PROJ, etc.) are accessible.
     // A common approach is to place them in your application's output directory.
     private const string SpatiaLiteModulePath = "mod_spatialite"; // or "mod_spatialite.dll" on Windows etc.
 
-    public SpatialSqliteConnection() : base() { }
-    public SpatialSqliteConnection(string connectionString) : base(connectionString) { }
+    public SpatiaLiteConnection() : base() { }
+    public SpatiaLiteConnection(string connectionString) : base(connectionString) { }
 
     public override void Open()
     {
@@ -76,7 +76,7 @@ public class SpatialSqliteConnection : SqliteConnection
         }
     }
 
-    static SpatialSqliteConnection()
+    static SpatiaLiteConnection()
     {
         // ensure SQLitePCLRaw is initialized - this should be done once at application startup.
         SQLitePCL.Batteries.Init();

@@ -1,10 +1,10 @@
 ﻿using Microsoft.Data.Sqlite;
-using OgcApi.Net.SQLite;
+using OgcApi.Net.SpatiaLite;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace OgcApi.SQLite.Tests.Utils;
+namespace OgcApi.SpatiaLite.Tests.Utils;
 
 public static class DatabaseUtils
 {
@@ -19,11 +19,11 @@ public static class DatabaseUtils
         if (File.Exists(DatabaseName))
             File.Delete(DatabaseName);
 
-        using (var sqlConnection = new SpatialSqliteConnection(string.Format(GetConnectionStringTemplate(), DatabaseName)))
+        using (var sqlConnection = new SpatiaLiteConnection(string.Format(GetConnectionStringTemplate(), DatabaseName)))
         {
             sqlConnection.Open();
 
-            string script = string.Format(GetInstallSQLiteScript("DatabaseInstall"), DatabaseName);
+            string script = string.Format(GetInstallSpatiaLiteScript("DatabaseInstall"), DatabaseName);
 
             using var installDatabaseCommand = new SqliteCommand(script, sqlConnection);
             installDatabaseCommand.ExecuteNonQuery();
@@ -34,10 +34,10 @@ public static class DatabaseUtils
         }
     }
 
-    private static string GetInstallSQLiteScript(string scriptName)
+    private static string GetInstallSpatiaLiteScript(string scriptName)
     {
         var assembly = typeof(DatabaseUtils).Assembly;
-        using var stream = assembly.GetManifestResourceStream($"OgcApi.SQLite.Tests.Utils.{scriptName}.sql");
+        using var stream = assembly.GetManifestResourceStream($"OgcApi.SpatiaLite.Tests.Utils.{scriptName}.sql");
 
         if (stream == null)
         {

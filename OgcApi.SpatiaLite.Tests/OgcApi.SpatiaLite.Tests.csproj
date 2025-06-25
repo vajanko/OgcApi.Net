@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OgcApi.Net.SQLite\OgcApi.Net.SQLite.csproj">
+    <ProjectReference Include="..\OgcApi.Net.SpatiaLite\OgcApi.Net.SpatiaLite.csproj">
       <Private>True</Private>
       <CopyLocalSatelliteAssemblies>True</CopyLocalSatelliteAssemblies>
     </ProjectReference>

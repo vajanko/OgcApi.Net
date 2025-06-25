@@ -6,23 +6,23 @@ using NetTopologySuite.IO.VectorTiles.Mapbox;
 using OgcApi.Net.DataProviders;
 using OgcApi.Net.Features;
 using OgcApi.Net.Options;
-using OgcApi.SQLite.Tests.Utils;
+using OgcApi.SpatiaLite.Tests.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.IO;
 using System.Linq;
 using Xunit;
-using OgcApi.Net.SQLite;
+using OgcApi.Net.SpatiaLite;
 
-namespace OgcApi.SQLite.Tests;
+namespace OgcApi.SpatiaLite.Tests;
 
-public class SQLiteFacts : IClassFixture<DatabaseFixture>
+public class SpatiaLiteFacts : IClassFixture<DatabaseFixture>
 {
     [Fact]
     public void DatabaseCreation()
     {
-        using var sqlConnection = new SpatialSqliteConnection(DatabaseUtils.GetConnectionString());
+        using var sqlConnection = new SpatiaLiteConnection(DatabaseUtils.GetConnectionString());
         sqlConnection.Open();
 
         using var sqlCommand = new SqliteCommand("SELECT name FROM sqlite_schema WHERE type='table' AND name=@tableName;", sqlConnection);
