@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using Xunit;
 using OgcApi.Net.SpatiaLite;
+using System.Threading.Tasks;
 
 namespace OgcApi.SpatiaLite.Tests;
 
@@ -589,7 +590,7 @@ public class SpatiaLiteFacts : IClassFixture<DatabaseFixture>
     }
 
     [Fact]
-    public async void GetTile()
+    public async Task GetTile()
     {
         var tile = await TestProviders.GetDefaultProvider().GetTileAsync("Polygons", 1, 0, 1);
         Assert.NotNull(tile);
@@ -602,7 +603,7 @@ public class SpatiaLiteFacts : IClassFixture<DatabaseFixture>
     }
 
     [Fact]
-    public async void GetTileEmptyTile()
+    public async Task GetTileEmptyTile()
     {
         var rawTile = await TestProviders.GetDefaultProvider().GetTileAsync("Polygons", 8, 1, 250);
         using var memoryStream = new MemoryStream(rawTile);

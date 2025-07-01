@@ -1,10 +1,6 @@
 ﻿using OgcApi.Net.Options.Features;
 using OgcApi.Net.Options;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OgcApi.SpatiaLite.Tests.Utils;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
