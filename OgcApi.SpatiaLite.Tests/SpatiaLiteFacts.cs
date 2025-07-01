@@ -597,7 +597,7 @@ public class SpatiaLiteFacts : IClassFixture<DatabaseFixture>
     }
 
     [Fact]
-    public async System.Threading.Tasks.Task GetTileUnknownCollection()
+    public async Task GetTileUnknownCollection()
     {
         await Assert.ThrowsAsync<ArgumentException>(() => TestProviders.GetDefaultProvider().GetTileAsync("test", 1, 1, 1));
     }
