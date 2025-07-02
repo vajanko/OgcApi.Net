@@ -35,12 +35,19 @@ OgcApi.Net.MbTiles | MbTiles tiles provider implementation | [![Nuget](https://i
 OgcApi.Net.Schemas | Schemas standart implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.Schemas)](https://www.nuget.org/packages/OgcApi.Net.Schemas/)
 
 To use SpatiaLite, you will need to add some additional NuGet package dependencies to your project.
+
 For Windows, you will need the Microsoft.Data.SQLite and mod_spatialite packages.
+
 For Linux and macOS, you will need the SQLitePCLRaw.bundle_sqlite3 package.
+
 If you are deploying your application to Linux or macOS, it is recommended that you install the SpatiaLite library on your operating system before doing so:
+
 `Debian/Ubuntu`
+
 ```apt-get install libsqlite3-mod-spatialite```
+
 `MacOS`
+
 ```brew install libspatialite```
 
 ## API configuration
