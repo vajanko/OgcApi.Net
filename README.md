@@ -42,11 +42,11 @@ For Linux and macOS, you will need the SQLitePCLRaw.bundle_sqlite3 package.
 
 If you are deploying your application to Linux or macOS, it is recommended that you install the SpatiaLite library on your operating system before doing so:
 
-`Debian/Ubuntu`
+Debian/Ubuntu:
 
 ```apt-get install libsqlite3-mod-spatialite```
 
-`MacOS`
+MacOS:
 
 ```brew install libspatialite```
 
