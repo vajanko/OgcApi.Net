@@ -21,6 +21,8 @@ This implementation uses attribute routing. All API endpoints will be accessible
 
 API configuration can be done using a configuration file named `ogcsettings.json`, which has the following structure:
 
+### Options example
+
 ```json
 {
   "LandingPage": {
