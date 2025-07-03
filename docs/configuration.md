@@ -21,59 +21,56 @@ This implementation uses attribute routing. All API endpoints will be accessible
 
 API configuration can be done using a configuration file named `ogcsettings.json`, which has the following structure:
 
-<details>
-  <summary>Configuration Example</summary>
-   ```json
-   {
-     "LandingPage": {
-       "Title": "OGC API Implementation",
-       "Description": "The implementation of the OGC API family of standards that being developed to make it easy for anyone to provide geospatial data to the web",
-       "Version": "1.0",
-       "ContactName": "OGC API",
-       "ContactUrl": "https://www.example.com/",
-       "ApiDocumentPage": "/api/ogc/index.html",
-       "ApiDescriptionPage": "/api/ogc/swagger.json"
-     },
-     "Collections": {
-       "Items": [
-         {
-           "Id": "Test",
-           "Title": "Test collection",
-           "Features": {
-             "Crs": [
-               "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
-               "http://www.opengis.net/def/crs/EPSG/0/3857"
-             ],
-             "StorageCrs": "http://www.opengis.net/def/crs/EPSG/0/3857",
-             "Storage": {
-               "Type": "PostGis",
-               "ConnectionString": "Host=localhost;User Id=postgre;Password=myStrongP@ssword;Database=Tests;Port=5432;Timeout=50;",
-               "Schema": "test",
-               "Table": "test_table",
-               "GeometryColumn": "geom",
-               "GeometrySrid": 3857,
-               "GeometryDataType": "geometry",
-               "GeometryGeoJsonType": "MultiPolygon",
-               "IdentifierColumn": "id",
-               "Properties": [
-                 "name",
-                 "region"
-               ]
-             }
-           },
-           "Tiles": {
-             "Crs": "http://www.opengis.net/def/crs/EPSG/0/3857",
-             "Storage": {
-               "Type": "MbTiles",
-               "FileName": "TilesData\\data.mbtiles"
-             }
-           }
-         }
-       ]
-     }
-   }
-   ```
-</details>
+```json
+{
+  "LandingPage": {
+    "Title": "OGC API Implementation",
+    "Description": "The implementation of the OGC API family of standards that being developed to make it easy for anyone to provide geospatial data to the web",
+    "Version": "1.0",
+    "ContactName": "OGC API",
+    "ContactUrl": "https://www.example.com/",
+    "ApiDocumentPage": "/api/ogc/index.html",
+    "ApiDescriptionPage": "/api/ogc/swagger.json"
+  },
+  "Collections": {
+    "Items": [
+      {
+        "Id": "Test",
+        "Title": "Test collection",
+        "Features": {
+          "Crs": [
+            "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+            "http://www.opengis.net/def/crs/EPSG/0/3857"
+          ],
+          "StorageCrs": "http://www.opengis.net/def/crs/EPSG/0/3857",
+          "Storage": {
+            "Type": "PostGis",
+            "ConnectionString": "Host=localhost;User Id=postgre;Password=myStrongP@ssword;Database=Tests;Port=5432;Timeout=50;",
+            "Schema": "test",
+            "Table": "test_table",
+            "GeometryColumn": "geom",
+            "GeometrySrid": 3857,
+            "GeometryDataType": "geometry",
+            "GeometryGeoJsonType": "MultiPolygon",
+            "IdentifierColumn": "id",
+            "Properties": [
+              "name",
+              "region"
+            ]
+          }
+        },
+        "Tiles": {
+          "Crs": "http://www.opengis.net/def/crs/EPSG/0/3857",
+          "Storage": {
+            "Type": "MbTiles",
+            "FileName": "TilesData\\data.mbtiles"
+          }
+        }
+      }
+    ]
+  }
+}
+```
 
 The Landing page element provides links to:
 - the API definition (Swagger documentation and JSON description pages)
