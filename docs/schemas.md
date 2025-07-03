@@ -37,8 +37,7 @@ Each property description includes:
 - **Format**: Format of the property. For geometry properties, use one of: `geometry-point`, `geometry-multipoint`, `geometry-linestring`, `geometry-multilinestring`, `geometry-polygon`, `geometry-multipolygon`, `geometry-geometrycollection`, `geometry-any`.
 - **XOgcPropertySeq**: Sequence number of the property (not yet used).
 
-<details>
-  <summary>Options Example</summary>
+### Options example
 ```json
 {
 	"Id": "Test",
@@ -84,7 +83,6 @@ Each property description includes:
 	}
 }
 ```
-</details>
 
 ## Notes
 - If the `SchemaOptions` section is not specified, property names and types will be retrieved from the data provider.
