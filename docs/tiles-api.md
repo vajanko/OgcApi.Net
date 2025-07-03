@@ -10,8 +10,8 @@ The Tiles API configuration includes the following options:
 - **Type**: Currently, only `MbTiles` is supported.
 - **FileName**: Path to the MbTiles file.
 
-<details>
-  <summary>Options Example</summary>
+### Options example
+
 ```json
 {
   "Id": "Test",
@@ -47,4 +47,3 @@ The Tiles API configuration includes the following options:
   }
 }
 ```
-</details>
