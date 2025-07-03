@@ -9,8 +9,8 @@ You can restrict access to features by providing predicates that will be include
 
 All predicates can contain the `@ApiKey` parameter, which is used to filter allowed features in the data source. This parameter can represent, for example, a user name or session ID.
 
-<details>
-  <summary>Options Example</summary>
+### Options example
+
 ```json
 {
   "Id": "Test",
@@ -44,6 +44,5 @@ All predicates can contain the `@ApiKey` parameter, which is used to filter allo
   }
 }
 ```
-</details>
 
 For more details about the Features API, see [Features API](features-api.md).
