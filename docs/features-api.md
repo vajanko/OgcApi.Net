@@ -22,8 +22,6 @@ Storage options include:
 - **IdentifierColumn**: Name of the identifier column in the table.
 - **Properties**: Array of additional columns to publish.
 
-<details>
-  <summary>Options Example</summary>
 ```json
 {
   "Id": "Test",
@@ -52,7 +50,6 @@ Storage options include:
   }
 }
 ```
-</details>
 
 ## Create, Replace, Update and Delete operations
 
@@ -64,9 +61,6 @@ To allow data modification operation to the features, you must include in the da
 - **AllowDelete** - to allow Delete operation for the collection
 
 Defining one or more of these options automatically expands API to the OGC API - Features - Part 4: Create, Replace, Update and Delete
-
-<details>
-  <summary>Options example</summary>
 
 ```json
 {
@@ -98,4 +92,3 @@ Defining one or more of these options automatically expands API to the OGC API -
   }
 }
 ```
-</details>
