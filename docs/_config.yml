@@ -1,0 +1,5 @@
+theme: just-the-docs
+plugins:
+  - jekyll-default-layout
+title: OgcApi.Net
+baseurl: "/OgcApi.Net"
