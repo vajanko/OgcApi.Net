@@ -1,3 +1,9 @@
+---
+layout: default
+title: Swagger Generation
+nav_order: 9
+---
+
 # Swagger Generation
 
 The [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) library can be used to automatically generate a Swagger web page for your API. This provides interactive documentation and allows users to explore and test API operations directly from their browser.

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Schemas Support
+nav_order: 7
+---
+
 # Schemas Support
 
 Schema support is implemented in a separate library: `OgcApi.Net.Schemas`. It supports both SQL and MbTiles data providers.

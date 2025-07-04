@@ -1,3 +1,9 @@
+---
+layout: default
+title: Tiles API
+nav_order: 6
+---
+
 # Tiles API
 
 The current implementation supports only **MapBox Vector Tiles** for publishing through the API. Vector tiles must be stored in the **MbTiles** format. You can generate tiles from GeoJson files using [tippecanoe](https://github.com/mapbox/tippecanoe).

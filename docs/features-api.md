@@ -1,3 +1,9 @@
+---
+layout: default
+title: Features API
+nav_order: 5
+---
+
 # Features API
 
 OGC API - Features is a multi-part standard that provides the capability to create, modify, and query spatial data on the web. It specifies requirements and recommendations for APIs that want to follow a standard way of sharing feature data.

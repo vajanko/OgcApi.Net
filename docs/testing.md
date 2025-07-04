@@ -1,3 +1,10 @@
+---
+layout: default
+title: Testing
+nav_order: 12
+---
+
+
 # Testing
 
 Currently, this project contains tests for data providers. Testing the entire API can be done using the [OGC API - Features Conformance Test Suite](https://cite.opengeospatial.org/te2/about/ogcapi-features-1.0/1.0/site/).

@@ -1,3 +1,9 @@
+---
+layout: default
+title: API Configuration
+nav_order: 4
+---
+
 # API Configuration
 
 This implementation supports automatic API generation from metadata descriptions. To generate the API, you must:

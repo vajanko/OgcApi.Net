@@ -1,3 +1,9 @@
+---
+layout: default
+title: OgcApi.Net
+nav_order: 1
+---
+
 # OgcApi.Net
 
 .NET implementation of the OGC API family of standards

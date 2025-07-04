@@ -1,3 +1,9 @@
+---
+layout: default
+title: CORS Support
+nav_order: 10
+---
+
 # CORS Support
 
 All OGC API controllers use a CORS policy named `"OgcApi"`. This policy can be configured in the `ConfigureServices` method of your `Startup` class.

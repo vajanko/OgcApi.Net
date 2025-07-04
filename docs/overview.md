@@ -1,3 +1,9 @@
+---
+layout: default
+title: Overview
+nav_order: 2
+---
+
 # Overview
 
 OGC API standards define modular API building blocks to spatially enable Web APIs in a consistent way. The OpenAPI specification is used as the foundation for defining these building blocks.

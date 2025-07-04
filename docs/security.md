@@ -1,3 +1,9 @@
+---
+layout: default
+title: Authorization and Security
+nav_order: 8
+---
+
 # Authorization and Security
 
 You can restrict access to features by providing predicates that will be included in the `WHERE` statement for all database queries. To do this, include the following settings in the features storage configuration:

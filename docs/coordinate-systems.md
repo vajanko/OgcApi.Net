@@ -1,3 +1,9 @@
+---
+layout: default
+title: Coordinate Systems
+nav_order: 11
+---
+
 # Coordinate Systems
 
 The API supports any coordinate system identified by an SRID (Spatial Reference System Identifier). Each coordinate system must have a corresponding URI.
