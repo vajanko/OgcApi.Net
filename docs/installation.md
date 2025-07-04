@@ -32,4 +32,5 @@ The following packages are available:
 | OgcApi.Net.SpatiaLite | SQLite/SpatiaLite features data provider implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.SpatiaLite/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.SpatiaLite " alt="NuGet"></a> |
 | OgcApi.Net.MbTiles | MbTiles tiles provider implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.MbTiles/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.MbTiles " alt="NuGet"></a> |
 | OgcApi.Net.Schemas | Schemas standard implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.Schemas/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.Schemas " alt="NuGet"></a> |
+
 For API configuration, see [API Configuration](configuration.md).
