@@ -26,11 +26,10 @@ The following packages are available:
 
 | Package | Description | Link |
 | --- | --- | --- |
-| OgcApi.Net | OGC API - Features implementation without specific data providers | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net)](https://www.nuget.org/packages/OgcApi.Net/) |
-| OgcApi.Net.SqlServer | SQL Server features data provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.SqlServer)](https://www.nuget.org/packages/OgcApi.Net.SqlServer/) |
-| OgcApi.Net.PostGis | PostgreSQL/PostGis features data provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.PostGis)](https://www.nuget.org/packages/OgcApi.Net.PostGis/) |
-| OgcApi.Net.SpatiaLite | SQLite/SpatiaLite features data provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.SpatiaLite)](https://www.nuget.org/packages/OgcApi.Net.SpatiaLite/) |
-| OgcApi.Net.MbTiles | MbTiles tiles provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.MbTiles)](https://www.nuget.org/packages/OgcApi.Net.MbTiles/) |
-| OgcApi.Net.Schemas | Schemas standard implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.Schemas)](https://www.nuget.org/packages/OgcApi.Net.Schemas/) |
-
+| OgcApi.Net | OGC API - Features implementation without specific data providers | <a href="https://www.nuget.org/packages/OgcApi.Net/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net " alt="NuGet"></a> |
+| OgcApi.Net.SqlServer | SQL Server features data provider implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.SqlServer/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.SqlServer " alt="NuGet"></a> |
+| OgcApi.Net.PostGis | PostgreSQL/PostGis features data provider implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.PostGis/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.PostGis " alt="NuGet"></a> |
+| OgcApi.Net.SpatiaLite | SQLite/SpatiaLite features data provider implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.SpatiaLite/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.SpatiaLite " alt="NuGet"></a> |
+| OgcApi.Net.MbTiles | MbTiles tiles provider implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.MbTiles/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.MbTiles " alt="NuGet"></a> |
+| OgcApi.Net.Schemas | Schemas standard implementation | <a href="https://www.nuget.org/packages/OgcApi.Net.Schemas/ "><img src="https://img.shields.io/nuget/v/OgcApi.Net.Schemas " alt="NuGet"></a> |
 For API configuration, see [API Configuration](configuration.md).

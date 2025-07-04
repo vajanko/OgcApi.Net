@@ -8,7 +8,10 @@ nav_order: 1
 
 .NET implementation of the OGC API family of standards
 
-[![GitHub](https://img.shields.io/github/license/sam-is/OgcApi.Net )](https://github.com/sam-is/OgcApi.Net/blob/main/LICENSE )
+#№ License
+<a href="https://github.com/sam-is/OgcApi.Net/blob/main/LICENSE ">
+  <img src="https://img.shields.io/github/license/sam-is/OgcApi.Net " alt="License: MIT">
+</a>
 
 Welcome to the OgcApi.Net documentation! This project provides a .NET implementation of the OGC API family of standards for working with geospatial data.
 
