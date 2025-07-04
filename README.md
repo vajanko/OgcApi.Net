@@ -16,6 +16,18 @@ Key features:
 
 For detailed documentation, visit the [project documentation on GitHub Pages](https://sam-is.github.io/OgcApi.Net).
 
+## NuGet Packages
+The following packages are available:
+
+| Package | Description | Link |
+| --- | --- | --- |
+| OgcApi.Net | OGC API - Features implementation without specific data providers | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net)](https://www.nuget.org/packages/OgcApi.Net/) |
+| OgcApi.Net.SqlServer | SQL Server features data provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.SqlServer)](https://www.nuget.org/packages/OgcApi.Net.SqlServer/) |
+| OgcApi.Net.PostGis | PostgreSQL/PostGis features data provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.PostGis)](https://www.nuget.org/packages/OgcApi.Net.PostGis/) |
+| OgcApi.Net.SpatiaLite | SQLite/SpatiaLite features data provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.SpatiaLite)](https://www.nuget.org/packages/OgcApi.Net.SpatiaLite/) |
+| OgcApi.Net.MbTiles | MbTiles tiles provider implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.MbTiles)](https://www.nuget.org/packages/OgcApi.Net.MbTiles/) |
+| OgcApi.Net.Schemas | Schemas standard implementation | [![Nuget](https://img.shields.io/nuget/v/OgcApi.Net.Schemas)](https://www.nuget.org/packages/OgcApi.Net.Schemas/) |
+
 ## Installation
 
 To get started with OgcApi.Net, you need to install the core package and at least one data provider package depending on your database or data source. Below are the available NuGet packages:
