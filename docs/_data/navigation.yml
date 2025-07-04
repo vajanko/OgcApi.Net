@@ -1,0 +1,24 @@
+- title: OgcApi.Net
+  url: /index
+- title: Overview
+  url: /overview
+- title: Installation
+  url: /installation
+- title: API Configuration
+  url: /configuration
+- title: Features API
+  url: /features-api
+- title: Tiles API
+  url: /tiles-api
+- title: Schemas Support
+  url: /schemas
+- title: Authorization and Security
+  url: /security
+- title: Swagger Generation
+  url: /swagger-generation
+- title: CORS Support
+  url: /cors-support
+- title: Coordinate Systems
+  url: /coordinate-systems
+- title: Testing
+  url: /testing
